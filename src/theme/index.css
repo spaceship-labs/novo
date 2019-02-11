@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant:200,400,700|Playfair+Display:400,400i,700');
+@import './font/style.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+html,body{
+  min-height: 100%;
+}
