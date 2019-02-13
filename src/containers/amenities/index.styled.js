@@ -44,6 +44,8 @@ const RowImg = styled.div`
   padding-top: 50px;
   position: relative;
   padding-left: ${props => props.theme.pLeft};
+  position: relative;
+  z-index: 2;
   p {
     margin-bottom: -120px;
   }
@@ -70,6 +72,8 @@ const RowBg = styled.div`
   background-color: white;
   padding: 50px 60px 50px 80px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
   ${props => props.theme.largeBreakPoint} {
     flex: 0 1 450px;
   }

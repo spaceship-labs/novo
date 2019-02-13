@@ -10,29 +10,15 @@ import {
 
 class HeaderComponent extends Component {
   render() {
-    const scrollTo = link => {
-      if (!link) return false;
-      const element = document.getElementById(link);
-      console.log("Scroll", link, element);
-      element.scrollIntoView({ behavior: "smooth" });
-    };
-    const sections = {
-      home: { link: "welcome", title: "Welcome", section: "home" },
-      photos: { link: "photos", title: "Photos", section: "photos" },
-      amenities: {
-        link: "amenities",
-        title: "Amenities",
-        section: "amenities"
-      },
-      location: { link: "location", title: "Location", section: "location" },
-      about: { link: "about", title: "About novo Cancún", section: "about" },
-      contact: { link: "contact", title: "Contact us", section: "contact" }
+    const scrollTo = section => {
+      const top = section.top;
+      window.scroll({ top: top, let: 0, behavior: "smooth" });
     };
     const allSections = this.props.sections;
     const menuItems = Object.keys(allSections).map((key, index) => {
       if (key === "video") return false;
       const section = allSections[key];
-      const item = sections[key];
+      const item = section.section;
       let percentage = 0;
       if (this.props.scroll > section.top + section.height) {
         percentage = 100;
@@ -45,7 +31,7 @@ class HeaderComponent extends Component {
       return (
         <MenuItem
           key={index}
-          onClick={e => scrollTo(item.link)}
+          onClick={e => scrollTo(section)}
           className={percentage}
           percentage={percentage}
         >

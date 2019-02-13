@@ -2,28 +2,32 @@ import React, { Component } from "react";
 import Largegallery from "../../components/largegallery/index";
 import { SectionWrapper } from "./index.styled";
 
-import img1 from "../../theme/livingroom.jpg";
-import img2 from "../../theme/kitchen.png";
-import img3 from "../../theme/torre.jpg";
-import img4 from "../../theme/torre2.jpg";
+import livingroom from "../../theme/livingroom.jpg";
+import bathroom from "../../theme/bathroom.jpg";
+import kitchen from "../../theme/kitchen.png";
+import masterroom from "../../theme/masterroom.jpg";
+import exterior from "../../theme/exterior.jpg";
 
 class PhotosContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.props.mount("photos");
   }
   render() {
     const images = [
-      { image: img1, alt: "image 1", label: "Living Room", name: "name" },
-      { image: img2, alt: "image 2", label: "Bathroom", name: "name" },
-      { image: img3, alt: "image 3", label: "kitchen", name: "name" },
-      { image: img4, alt: "image 4", label: "Exterior", name: "name" }
+      { image: livingroom, alt: "image 1", label: "Living Room", name: "name" },
+      { image: bathroom, alt: "image 2", label: "Bathroom", name: "name" },
+      { image: kitchen, alt: "image 3", label: "kitchen", name: "name" },
+      {
+        image: masterroom,
+        alt: "image 4",
+        label: "Master Bedroom",
+        name: "name"
+      },
+      { image: exterior, alt: "image 5", label: "Exterior", name: "name" }
     ];
     return (
       <SectionWrapper id="photos">
-        <Largegallery images={images} />
+        <Largegallery widthNumber={this.props.widthNumber} images={images} />
       </SectionWrapper>
     );
   }

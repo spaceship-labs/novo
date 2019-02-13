@@ -29,6 +29,9 @@ const VideoWrapper = styled.div`
     background-color: ${props => props.theme.Blue};
     opacity: 0.5;
   }
+  ${props => props.theme.mediumBreakPoint} {
+    justify-content: center;
+  }
 `;
 
 const VideoTitle = styled.h2`
@@ -75,6 +78,19 @@ const Logo = styled.div`
         h2{
             font-size: ${props => props.theme.textLogoBig2x};
         }
+    }
+    ${props => props.theme.mediumBreakPoint}{
+      background-color: white;
+      width: 100%;
+      top: 0;
+      padding: 10px;
+      position: absolute;
+      box-sizing: border-box;
+      position: fixed;
+      z-index: 888;
+      h1,h2{
+        color: ${props => props.theme.Black};
+      }
     }
 `;
 

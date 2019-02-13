@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import smoothscroll from "smoothscroll-polyfill";
+import WOW from "wowjs";
 
 import { Theme } from "./theme/theme";
 import { ThemeProvider } from "styled-components";
@@ -15,7 +16,7 @@ import LocationContainer from "./containers/location/index";
 import AboutContainer from "./containers/about/index";
 import ContactContainer from "./containers/contact/index";
 import FooterContainer from "./containers/footer/index";
-
+var wow;
 class App extends Component {
   constructor(props) {
     super(props);
@@ -27,10 +28,12 @@ class App extends Component {
     this.state = {
       theme: theme,
       isMenuVisible: false,
+      widthNumber: window.innerWidth,
       sections: {},
       scroll: 0
     };
     smoothscroll.polyfill();
+    //this.setState({ wow: new WOW.WOW() });
   }
 
   componentDidMount() {
@@ -41,6 +44,9 @@ class App extends Component {
     window.addEventListener("scroll", this.updateScrollState, {
       passive: true
     });
+    wow = new WOW.WOW({ live: false });
+    wow.init();
+    //wow.sync();
   }
 
   updateScrollState = event => {
@@ -56,7 +62,8 @@ class App extends Component {
     };
     this.setState({
       scroll: window.scrollY,
-      sections: sections
+      sections: sections,
+      widthNumber: window.innerWidth
     });
     this.isMenuVisible();
     //console.log('scroll', window.scrollY);
@@ -89,14 +96,30 @@ class App extends Component {
     };
     this.setState({
       theme: theme,
-      sections: sections
+      sections: sections,
+      widthNumber: window.innerWidth
     });
   };
 
   getSection = id => {
     const element = document.getElementById(id);
+    if (!element) return false;
+    const sections = {
+      home: { link: "home", title: "Welcome", section: "home" },
+      photos: { link: "photos", title: "Photos", section: "photos" },
+      amenities: {
+        link: "amenities",
+        title: "Amenities",
+        section: "amenities"
+      },
+      location: { link: "location", title: "Location", section: "location" },
+      about: { link: "about", title: "About novo Cancún", section: "about" },
+      contact: { link: "contact", title: "Contact us", section: "contact" },
+      video: false
+    };
     return {
       element: element,
+      section: sections[id],
       top: element.offsetTop,
       height: element.offsetHeight || element.height
     };
@@ -123,7 +146,10 @@ class App extends Component {
               isMenuVisible={this.state.isMenuVisible}
             />
             <HomeContainer mount={this.updateSection} />
-            <PhotosContainer mount={this.updateSection} />
+            <PhotosContainer
+              widthNumber={this.state.widthNumber}
+              mount={this.updateSection}
+            />
             <AmenitiesContainer mount={this.updateSection} />
             <LocationContainer mount={this.updateSection} />
             <AboutContainer mount={this.updateSection} />

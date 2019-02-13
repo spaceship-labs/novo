@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { SmallContainer, Title, SubTitle } from "../../theme/App.styled";
-import {
-  Welcome,
-  PTitle,
-  TitleFooter,
-} from "./index.styled";
+import { Welcome, PTitle, TitleFooter } from "./index.styled";
 
 class WelcomeComponent extends Component {
   render() {
     return (
-        <Welcome>
-          <SmallContainer align="center">
-            <Title>Welcome</Title>
-            <SubTitle>amet, consectetur.</SubTitle>
-            <TitleFooter>Lorem ipsum dolor sit amet</TitleFooter>
-            <PTitle>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</PTitle>
-          </SmallContainer>
-        </Welcome>
+      <Welcome>
+        <SmallContainer align="center" className="wow fadeInUp">
+          <Title>Welcome</Title>
+          <SubTitle>to your future lifestyle investment</SubTitle>
+          <TitleFooter>A luxurious penthouse in Novo Cancun,</TitleFooter>
+          <PTitle>
+            a flagship real estate development with its own marina, 18-hole golf
+            course, exclusive shopping mall (Marina Town Center), located in
+            Puerto Cancun (only 20 minutes from the airport).
+          </PTitle>
+        </SmallContainer>
+      </Welcome>
     );
   }
 }

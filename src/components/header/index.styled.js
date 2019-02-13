@@ -16,7 +16,7 @@ const MenuWrapp = styled.div`
 `;
 
 const Menu = styled.nav`
-  width: 50%;
+  width: 55%;
   display: flex;
 `;
 
@@ -80,6 +80,9 @@ const FullMenu = styled.nav`
   height: ${props => props.theme.MenuHeigth};
   display: flex;
   text-align: center;
+  padding-left: ${props => props.theme.SidebarWidth}px;
+  ${props => props.theme.mediumBreakPoint} {
+  }
   ${MenuItem} {
     font-size: ${props => props.theme.MenuItemFull};
     ${props => props.theme.largeBreakPoint} {

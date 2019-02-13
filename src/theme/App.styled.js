@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   color: ${props => props.theme.Black};
+  width: 100%;
+  overflow: hidden;
 `;
 
 const Content = styled.div`
@@ -102,6 +104,9 @@ const Paragraph = styled.p`
   ${props => props.theme.largeBreakPoint} {
     font-size: ${props => props.theme.textSize2x};
     letter-spacing: -0.2px;
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    text-align: ${props => (props.align ? "center" : "left")};
   }
 `;
 

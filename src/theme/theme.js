@@ -11,6 +11,7 @@ export const Theme = {
   Playfair: "'Playfair Display', serif",
   height: "200px",
   heightNumber: 200,
+  widthNumber: 400,
   pLeft: "25px",
   pRight: "35px",
   //media query
@@ -21,6 +22,8 @@ export const Theme = {
   //sizes
   SidebarWidth: 67,
   SidebarWidth2x: 100,
+  SidebarItems: 34,
+  SidebarItemsSmall: 20,
   //Text
   videoTitleXs: "38px",
   videoTitle: "54px",

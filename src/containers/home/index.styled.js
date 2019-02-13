@@ -24,10 +24,18 @@ const PTitle = styled.p`
 
 const ImageWithBox = styled.div`
   position: relative;
+  width: 100%;
   min-height: 300px;
   max-height: 800px;
   height: ${props => props.theme.height};
   background-image: url(${img3});
+  background-size: cover;
+  z-index: 1;
+  ${props => props.theme.mediumBreakPoint} {
+    width: 75%;
+    align-self: flex-end;
+    height: 300px;
+  }
 `;
 
 const Box = styled.div`
@@ -39,6 +47,7 @@ const Box = styled.div`
   position: absolute;
   left: 25px;
   top: 35px;
+  z-index: 2;
   h3 {
     font-size: ${props => props.theme.TextBoxTitle};
     font-weight: normal;
@@ -63,7 +72,9 @@ const Box = styled.div`
     }
   }
   ${props => props.theme.mediumBreakPoint} {
-    padding-bottom: 0;
+    position: relative;
+    width: 90%;
+    margin-top: -90px;
     h3:after {
       width: 40%;
       position: relative;
@@ -78,6 +89,8 @@ const Box = styled.div`
 
 const Rows = styled.div`
   display: flex;
+  position: relative;
+  fle-direction: ${props => (props.direction ? props.direction : "row")};
   ${props => props.theme.mediumBreakPoint} {
     flex-direction: column-reverse;
   }

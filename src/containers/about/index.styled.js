@@ -32,10 +32,10 @@ const RowImg = styled.div`
 `;
 
 const RowBg = styled.div`
-  flex: 0 1 40%;
+  flex: 0 1 50%;
   max-width: 400px;
   background-color: ${props => props.theme.Box};
-  padding: 60px 100px 30px;
+  padding: 60px 60px 30px;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
@@ -46,6 +46,7 @@ const RowBg = styled.div`
   ${props => props.theme.mediumBreakPoint} {
     margin-right: 40px;
     padding: 50px 60px 20px;
+    max-width: 80%;
   }
 `;
 
