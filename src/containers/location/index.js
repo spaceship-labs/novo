@@ -28,7 +28,7 @@ class LocationContainer extends Component {
           <Title>Location</Title>
           <Division />
           <Subtitle>
-            Novo Cancún Torre Boreal 209 | <i>Cancún Quintana Roo</i>
+            Novo Cancún Torre Boreal PH2 | <i>Cancún Quintana Roo</i>
           </Subtitle>
           <Paragraph align="center">
             Novo Cancun is a real estate development located in Puerto Cancun,

@@ -16,7 +16,7 @@ export const Theme = {
   pRight: "35px",
   //media query
   largeBreakPoint:
-    "@media only screen and (min-width: 1400px), only screen and (min-width: 1200px) and (min-resolution: 130dpi)",
+    "@media only screen and (min-width: 1400px), only screen and (min-resolution: 2dppx)",
   mediumBreakPoint: "@media only screen and (max-width: 750px)",
   smallBreakPoint: "@media only screen and (max-width: 450px)",
   //sizes
@@ -28,10 +28,10 @@ export const Theme = {
   videoTitleXs: "38px",
   videoTitle: "54px",
   videoTitle2x: "81px",
-  textSize: "12px",
+  textSize: "14px",
   textSize2x: "18px",
-  textSmall: "9px",
-  textSmall2x: "13.5px",
+  textSmall: "11px",
+  textSmall2x: "14.5px",
   textLogoSmall: "13px",
   textLogoSmall2x: "20px",
   textLogoBig: "25px",
@@ -50,7 +50,7 @@ export const Theme = {
   //text menu
   MenuHeigth: "62px",
   MenuHeigth2x: "93px",
-  MenuItemSmall: "9.5px",
+  MenuItemSmall: "12px",
   MenuItemSmall2x: "13px",
   MenuItemFull: "12.5px",
   MenuItemFull2x: "18.5px"

@@ -1,11 +1,5 @@
-import React, { Component } from 'react';
-import {
-  Columns,
-  Column,
-  Logo,
-  Footer,
-  Box,
-} from "./index.styled";
+import React, { Component } from "react";
+import { Columns, Column, Logo, Footer, Box } from "./index.styled";
 
 class footerContainer extends Component {
   render() {
@@ -14,13 +8,17 @@ class footerContainer extends Component {
         <Box>
           <Columns>
             <Column>
-              <p><a href='mailto:info@borealph2.com'>info@borealph2.com</a></p>
-              <p><a href="tel:55+ (0448) 998120">55+ (0448) 998120</a></p>
+              <p>
+                <a href="mailto:info@puertocancunpenthouse.com">info@puertocancunpenthouse.com</a>
+              </p>
+              <p>
+                <a href="tel:+52 1 55 6203 9056">+52 1 55 6203 9056</a>
+              </p>
             </Column>
             <Column>
               <Logo>
                 <span>Novo Cancún</span>
-                Boreal 209
+                Boreal ph2
               </Logo>
             </Column>
           </Columns>

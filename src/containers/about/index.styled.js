@@ -22,31 +22,28 @@ const Rows = styled.div`
 `;
 
 const RowImg = styled.div`
-  flex: 0 1 auto;
+  flex: 1 0 auto;
   padding-top: 70px;
   ${props => props.theme.mediumBreakPoint} {
     padding-top: 0;
-    margin-top: -40px;
-    padding-left: 60px;
+    width: 100%;
   }
 `;
 
 const RowBg = styled.div`
-  flex: 0 1 50%;
-  max-width: 400px;
+  flex: 0 1 45%;
   background-color: ${props => props.theme.Box};
   padding: 60px 60px 30px;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
   ${props => props.theme.largeBreakPoint} {
-    flex: 0 1 40%;
-    max-width: 610px;
+    flex: 0 1 50%;
+    max-width: 710px;
   }
   ${props => props.theme.mediumBreakPoint} {
-    margin-right: 40px;
     padding: 50px 60px 20px;
-    max-width: 80%;
+    max-width: 100%;
   }
 `;
 

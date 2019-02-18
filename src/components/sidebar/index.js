@@ -18,13 +18,14 @@ class Sidebar extends Component {
   }
   render() {
     const scrollTo = section => {
+      this.toggleMenu();
       const top = section.top;
       window.scroll({ top: top, let: 0, behavior: "smooth" });
     };
     const Sections = {
       video: "Welcome",
       home: "Welcome",
-      photos: "Photos",
+      photos: "Gallery",
       amenities: "Amenities",
       location: "Location",
       about: "About Novo",
@@ -47,9 +48,7 @@ class Sidebar extends Component {
       const section = this.props.sections[key];
       return (
         <li key={index}>
-          <a href="#" onClick={e => scrollTo(section)}>
-            {section.section.title}
-          </a>
+          <a onClick={e => scrollTo(section)}>{section.section.title}</a>
         </li>
       );
     });
@@ -59,20 +58,22 @@ class Sidebar extends Component {
           onClick={() => this.toggleMenu()}
           className={this.state.menu ? "open" : ""}
         >
-          <i className="icon-menu" />
+          <i className="" />
         </SideMenu>
         <SidebarContent className={this.state.menu ? "open" : ""}>
           <SidebarMenuWrapp className={this.state.menu ? "open" : ""}>
             <ul>{menuItems}</ul>
             <p>
-              <a href="mailto:info@borealph2.com">info@borealph2.com</a>
+              <a href="mailto:info@puertocancunpenthouse.com">
+                info@puertocancunpenthouse.com
+              </a>
             </p>
             <p>
-              <a href="tel:55+ (0448) 998120">55+ (0448) 998120</a>
+              <a href="tel:+52 1 55 6203 9056">+52 1 55 6203 9056</a>
             </p>
             <LogoSidebar>
               <span>Novo Cancún</span>
-              Boreal 209
+              Boreal ph2
             </LogoSidebar>
           </SidebarMenuWrapp>
           <SidebarSection>

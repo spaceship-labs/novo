@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { Title, SubTitle, TitleFooter } from "../../theme/App.styled";
+import {
+  Title,
+  SubTitle,
+  TitleFooter,
+  Paragraph
+} from "../../theme/App.styled";
 
 const AmenitiesBg = styled.div`
   background-color: ${props => props.theme.Box};
@@ -27,6 +32,9 @@ const TitleWrapper = styled.div`
   ${props => props.theme.smallBreakPoint} {
     padding-left: 25px;
     padding-right: 25px;
+  }
+  ${props => props.theme.largeBreakPoint} {
+    max-width: 600px;
   }
 `;
 const Rows = styled.div`
@@ -61,7 +69,7 @@ const RowImg = styled.div`
 
 const RowImgW = styled.div`
   width: 103%;
-  width: calc(100% + 60px);
+  width: calc(100% + 50px);
   ${props => props.theme.mediumBreakPoint} {
     width: 100%;
   }
@@ -73,7 +81,7 @@ const RowBg = styled.div`
   padding: 50px 60px 50px 80px;
   box-sizing: border-box;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   ${props => props.theme.largeBreakPoint} {
     flex: 0 1 450px;
   }
@@ -82,6 +90,7 @@ const RowBg = styled.div`
     position: relative;
     top: -60px;
     max-width: 90%;
+    z-index: 2;
   }
 `;
 
@@ -109,16 +118,22 @@ const AmenitieList = styled.div`
   display: flex;
   min-height: unset;
   justify-content: space-between;
-  max-width: 600px;
+
   flex-wrap: wrap;
+  width: 100%;
   ${props => props.theme.largeBreakPoint} {
     max-width: 700px;
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    max-width: 100%;
   }
 `;
 
 const Amenitie = styled(Row)`
   flex: 0 1 auto;
-  padding: 50px;
+  padding: 50px 35px;
+  box-sizing: border-box;
+  width: 25%;
   i {
     font-size: 48px;
     ${props => props.theme.largeBreakPoint} {
@@ -126,10 +141,11 @@ const Amenitie = styled(Row)`
     }
   }
   ${props => props.theme.mediumBreakPoint} {
-    padding: 50px 40px;
+    padding: 50px 30px;
   }
-  ${props => props.theme.mediumBreakPoint} {
-    padding: 40px 25px;
+  ${props => props.theme.smallBreakPoint} {
+    padding: 40px 15px;
+    width: 50%;
   }
 `;
 
@@ -185,6 +201,16 @@ const List = styled.ul`
   font-size: ${props => props.theme.textSize};
   padding: 0;
   line-height: 1.67;
+  ${Paragraph} {
+    position: relative;
+    span {
+      position: relative;
+      margin-left: -11px;
+      ${props => props.theme.largeBreakPoint} {
+        margin-left: -15px;
+      }
+    }
+  }
 `;
 
 const VerticalLine = styled.div`

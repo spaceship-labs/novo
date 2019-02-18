@@ -8,7 +8,10 @@ import {
   AboutTitle,
   Division
 } from "./index.styled";
-import img from "../../theme/about.jpg";
+
+import Smallgallery from "../../components/smallgallery/index";
+import img from "../../theme/images/Novo-Cancun-PH-Torre-Boreal-3758.jpg";
+import img2 from "../../theme/images/Novo-Cancun-PH-Torre-Boreal-3759.jpg";
 
 class AboutContainer extends Component {
   constructor(props) {
@@ -19,6 +22,11 @@ class AboutContainer extends Component {
     this.props.mount("about");
   }
   render() {
+    const scrollTo = sections => {
+      const top = sections.contact.top;
+      window.scroll({ top: top, let: 0, behavior: "smooth" });
+    };
+    const images = [{ img: img, label: "" }, { img: img2, label: "" }];
     return (
       <section id="about">
         <Rows>
@@ -38,11 +46,13 @@ class AboutContainer extends Component {
               cardio and weight lifting equipment, delightful gardens, swimming
               pools and a revitalizing spa.
             </Paragraph>
-            <Button>Book a viewing</Button>
+            <Button onClick={() => scrollTo(this.props.sections)}>
+              Book a viewing
+            </Button>
           </RowBg>
           <RowImg className="wow fadeInRight">
             <GalleryWrapp>
-              <img src={img} alt="algo" />
+              <Smallgallery images={images} />
             </GalleryWrapp>
           </RowImg>
         </Rows>

@@ -17,7 +17,10 @@ class HomeContainer extends Component {
     return (
       <section id="home">
         <WelcomeComponent />
-        <TorreComponent />
+        <TorreComponent sections={this.props.sections} />
+        <br />
+        <br />
+        <br />
         <Rows direction="column">
           <Box className="wow fadeInUp">
             <h3>Take a glance into this marvelous home</h3>

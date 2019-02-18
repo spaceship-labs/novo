@@ -14,9 +14,6 @@ const SidebarWrapper = styled.div`
   flex-direction: column;
   transition: width ${speed};
   ${curve}
-  ${props => props.theme.largeBreakPoint} {
-    width: ${props => props.theme.SidebarWidth2x}px;
-  }
   &.open {
     width: 350px;
   }
@@ -35,6 +32,7 @@ const SidebarSection = styled.div`
     font-family: ${props => props.theme.Assistant};
     text-transform: uppercase;
     font-size: 14px;
+    letter-spacing: 1.4px;
     white-space: nowrap;
   }
   i {
@@ -43,7 +41,7 @@ const SidebarSection = styled.div`
     left: -11px;
   }
   ${props => props.theme.largeBreakPoint} {
-    right: 35px;
+    right: 28px;
     p {
       font-size: 20px;
     }
@@ -62,9 +60,6 @@ const SidebarContent = styled.div`
   width: ${props => props.theme.SidebarWidth}px;
   transition: width ${speed};
   ${curve}
-  ${props => props.theme.largeBreakPoint} {
-    width: ${props => props.theme.SidebarWidth2x}px;
-  }
   ${props => props.theme.mediumBreakPoint} {
     width: 0px;
   }
@@ -89,6 +84,7 @@ const SidebarMenuWrapp = styled.div`
     padding: 0 30px;
     li a {
       width: 350px;
+      cursor: pointer;
       color: ${props => props.theme.Black};
       font-size: ${props => props.theme.SidebarItems}px;
       font-family: ${props => props.theme.Assistant};
@@ -128,13 +124,56 @@ const SidebarMenuWrapp = styled.div`
 
 const SideMenu = styled.div`
   text-align: left;
-  padding: 20px 30px;
+  padding: 20px 22px;
   cursor: pointer;
   height: 62px;
   background-color: ${props => props.theme.Sidebar};
   box-sizing: border-box;
   i {
     font-size: 20px;
+    display: block;
+    top: 10px;
+    width: 15px;
+    height: 0px;
+    border-bottom: 3px solid ${props => props.theme.Gold};
+    position: relative;
+    border-radius: 10px;
+    transition: all 0.2s;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 0;
+      width: 25px;
+      border-top: 3px solid ${props => props.theme.Gold};
+      border-radius: 10px;
+      transition: all 0.5s;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -11px;
+      left: 0;
+      width: 25px;
+      border-top: 3px solid ${props => props.theme.Gold};
+      border-radius: 10px;
+      transition: all 0.5s;
+    }
+  }
+  &.open {
+    i {
+      width: 0;
+      &:before {
+        transform: rotate(45deg);
+        transform-origin: left top 0;
+        left: 2px;
+      }
+      &:after {
+        transform: rotate(-45deg);
+        transform-origin: left top 0;
+        bottom: -13px;
+      }
+    }
   }
 `;
 
@@ -143,6 +182,13 @@ const LogoSidebar = styled(Logo)`
   color: ${props => props.theme.Black};
   text-align: center;
   width: 120px;
+  text-transform: uppercase;
+  span {
+    text-transform: capitalize;
+  }
+  ${props => props.theme.largeBreakPoint} {
+    width: 230px;
+  }
 `;
 
 export {

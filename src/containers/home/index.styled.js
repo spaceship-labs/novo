@@ -12,6 +12,7 @@ const TitleFooter = styled.p`
   font-weight: bold;
   line-height: 1.92;
   margin: 0;
+  padding-top: 5px;
 `;
 
 const PTitle = styled.p`
@@ -112,6 +113,7 @@ const Row = styled.div`
       text-align: center;
       min-height: 200px;
       margin-top: 25px;
+      padding-right: 0;
   }
 `;
 

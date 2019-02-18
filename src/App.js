@@ -28,7 +28,7 @@ class App extends Component {
     this.state = {
       theme: theme,
       isMenuVisible: false,
-      widthNumber: window.innerWidth,
+      widthNumber: document.body.clientWidth || window.innerWidth,
       sections: {},
       scroll: 0
     };
@@ -39,7 +39,6 @@ class App extends Component {
   componentDidMount() {
     this.updateWindowDimensions();
     this.updateScrollState();
-    //window.addEventListener('resize', this.updateWindowDimensions);
     window.addEventListener("resize", this.updateWindowDimensions);
     window.addEventListener("scroll", this.updateScrollState, {
       passive: true
@@ -63,7 +62,7 @@ class App extends Component {
     this.setState({
       scroll: window.scrollY,
       sections: sections,
-      widthNumber: window.innerWidth
+      widthNumber: document.body.clientWidth || window.innerWidth
     });
     this.isMenuVisible();
     //console.log('scroll', window.scrollY);
@@ -97,7 +96,7 @@ class App extends Component {
     this.setState({
       theme: theme,
       sections: sections,
-      widthNumber: window.innerWidth
+      widthNumber: document.body.clientWidth || window.innerWidth
     });
   };
 
@@ -106,7 +105,7 @@ class App extends Component {
     if (!element) return false;
     const sections = {
       home: { link: "home", title: "Welcome", section: "home" },
-      photos: { link: "photos", title: "Photos", section: "photos" },
+      photos: { link: "photos", title: "Galleries", section: "photos" },
       amenities: {
         link: "amenities",
         title: "Amenities",
@@ -145,14 +144,20 @@ class App extends Component {
               sections={this.state.sections}
               isMenuVisible={this.state.isMenuVisible}
             />
-            <HomeContainer mount={this.updateSection} />
+            <HomeContainer
+              mount={this.updateSection}
+              sections={this.state.sections}
+            />
             <PhotosContainer
               widthNumber={this.state.widthNumber}
               mount={this.updateSection}
             />
             <AmenitiesContainer mount={this.updateSection} />
             <LocationContainer mount={this.updateSection} />
-            <AboutContainer mount={this.updateSection} />
+            <AboutContainer
+              mount={this.updateSection}
+              sections={this.state.sections}
+            />
             <ContactContainer mount={this.updateSection} />
             <FooterContainer mount={this.updateSection} />
           </Content>

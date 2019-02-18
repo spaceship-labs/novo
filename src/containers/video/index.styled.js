@@ -40,8 +40,11 @@ const VideoTitle = styled.h2`
   font-style: normal;
   align-self: flex-start;
   color: white;
-  strong {
+  font-family: ${props => props.theme.Assistant};
+  font-weight: 200;
+  span {
     font-style: italic;
+    font-family: ${props => props.theme.Playfair};
   }
   ${props => props.theme.largeBreakPoint} {
     font-size: ${props => props.theme.videoTitle2x};
@@ -69,6 +72,7 @@ const Logo = styled.div`
         font-weight: normal;
         line-height: 1.06;
         margin: 0;
+        text-transform: uppercase;
     }
     ${props => props.theme.largeBreakPoint}{
         width: 250px;

@@ -8,22 +8,23 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   padding-left: 67px;
-  ${props => props.theme.largeBreakPoint} {
-    padding-left: 100px;
-  }
   ${props => props.theme.mediumBreakPoint} {
     padding-left: 0;
   }
 `;
 
 const SmallContainer = styled.div`
-  max-width: 650px;
+  width: 95%;
+  max-width: 750px;
   box-sizing: border-box;
   padding: 40px;
   margin: 0 auto;
   ${props => (props.align ? "text-align:" + props.align : "")};
   ${props => props.theme.largeBreakPoint} {
-    max-width: 850px;
+    max-width: 1300px;
+  }
+  ${props => props.theme.smallBreakPoint} {
+    padding: 20px;
   }
 `;
 
@@ -58,6 +59,7 @@ const TitleFooter = styled.p`
   font-weight: bold;
   line-height: 1.92;
   margin: 0;
+  padding-top: 5px;
   ${props => props.theme.largeBreakPoint} {
     font-size: ${props => props.theme.textFooterTitleGroup2x};
   }
@@ -70,11 +72,14 @@ const Button = styled.a`
   width: 100%;
   max-width: 400px;
   font-size: ${props => props.theme.textSmall};
-  letter-spacing: 0.9px;
+  letter-spacing: 1.4px;
   display: block;
   padding: 12px;
   box-sizing: border-box;
   margin: 30px auto;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: ${props => props.theme.Assistant};
   ${props => props.theme.largeBreakPoint} {
     font-size: ${props => props.theme.textSmall2x};
   }
@@ -88,9 +93,9 @@ const ImageFooter = styled.p`
     color: ${props => props.theme.Gold};
   }
   ${props => props.theme.largeBreakPoint} {
-    font-size: 26.5px;
+    font-size: 16.5px;
     span {
-      font-size: 24.5px;
+      font-size: 14.5px;
     }
   }
 `;

@@ -16,37 +16,42 @@ const MenuWrapp = styled.div`
 `;
 
 const Menu = styled.nav`
-  width: 55%;
+  width: 60%;
   display: flex;
+  @media only screen and (max-width: 900px) {
+    width: 80%;
+  }
 `;
 
 const MenuItem = styled.a`
-    flex: 1 0 auto;
-    color: white;
-    font-size: ${props => props.theme.MenuItemSmall}
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 20px 5px;
-    font-family: ${props => props.theme.Assistant};
-    position: relative;
-    cursor: pointer;
-    &:before{
-        content: '';
-        position: absolute;
-        ${props => (props.percentage ? "width:" + props.percentage + "%" : "")}
-        max-width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background-color: white;
-        z-index: -1;
-    }
-    &:hover{
-        color: ${props => props.theme.Gold};
-    }
-    ${props => props.theme.largeBreakPoint}{
-        font-size: ${props => props.theme.MenuItemSmall2x}
-    }
+  flex: 1 0 auto;
+  color: white;
+  font-size: ${props => props.theme.MenuItemSmall};
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px 5px;
+  font-family: ${props => props.theme.Assistant};
+  position: relative;
+  cursor: pointer;
+  &:before {
+    content: "";
+    position: absolute;
+    ${props => (props.percentage ? "width:" + props.percentage + "%" : "")}
+    max-width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+    z-index: -1;
+  }
+  &:hover {
+    color: ${props => props.theme.Gold};
+  }
+  ${props => props.theme.largeBreakPoint} {
+    font-size: ${props => props.theme.MenuItemSmall2x};
+  }
 `;
 
 const FullMenuWrap = styled.div`

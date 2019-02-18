@@ -18,12 +18,23 @@ const ContactTitleFooter = styled(TitleFooter)`
   color: white;
 `;
 
+const Message = styled.p`
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  color: ${props => props.theme.Gold};
+`;
+
 const Form = styled.form`
   text-align: left;
   display: flex;
   margin: 0 auto;
   max-width: 460px;
   margin-top: 30px;
+  position: relative;
   ${props => props.theme.largeBreakPoint} {
     max-width: 600px;
   }
@@ -37,6 +48,9 @@ const Form = styled.form`
     font-size: ${props => props.theme.textSmall};
     display: inline-block;
     margin-bottom: 4px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    font-family: ${props => props.theme.Assistant};
     ${props => props.theme.largeBreakPoint} {
       font-size: ${props => props.theme.textSmall2x};
     }
@@ -70,10 +84,13 @@ const Button = styled.button`
   text-align: center;
   width: 100%;
   font-size: ${props => props.theme.textSmall};
+  letter-spacing: 1.4px;
   display: block;
   padding: 10px;
   box-sizing: border-box;
   margin: 28px 0;
+  text-transform: uppercase;
+  font-family: ${props => props.theme.Assistant};
   ${props => props.theme.largeBreakPoint} {
     font-size: ${props => props.theme.textSmall2x};
   }
@@ -86,5 +103,6 @@ export {
   ContactTitleFooter,
   Form,
   Column,
-  Button
+  Button,
+  Message
 };

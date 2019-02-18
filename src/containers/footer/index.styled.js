@@ -3,6 +3,8 @@ import styled from "styled-components";
 const Footer = styled.footer`
   background-color: ${props => props.theme.Blue};
   padding-bottom: 55px;
+  position: relative;
+  z-index: 2;
 `;
 
 const Box = styled.div`
@@ -62,7 +64,9 @@ const Logo = styled.h2`
   font-weight: normal;
   line-height: 1.06;
   letter-spacing: normal;
+  text-transform: uppercase;
   span {
+    text-transform: capitalize;
     line-height: normal;
     display: inline-block;
     width: 100%;

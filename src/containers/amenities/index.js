@@ -22,9 +22,12 @@ import {
 } from "./index.styled";
 
 import Smallgallery from "../../components/smallgallery/index";
-import img1 from "../../theme/kitchen.png";
-import img2 from "../../theme/torre.jpg";
-import img3 from "../../theme/torre2.jpg";
+import img1 from "../../theme/images/Novo-Cancun-PH-Anemona-2026.jpg"; //baño
+import img2 from "../../theme/images/Novo-Cancun-PH-Anemona-2078.jpg"; //cocina interior
+import img3 from "../../theme/images/Novo-Cancun-PH-Anemona-2103.jpg";
+import img4 from "../../theme/images/Novo-Cancun-PH-Anemona-2082.jpg";
+import img5 from "../../theme/images/Novo-Cancun-PH-Anemona-2085.jpg";
+import img6 from "../../theme/images/Novo-Cancun-PH-Anemona-2088.jpg";
 
 class AmenitiesContainer extends Component {
   constructor(props) {
@@ -32,7 +35,7 @@ class AmenitiesContainer extends Component {
     const amenities = [
       { icon: "icon-room", title: "4 Rooms" },
       { icon: "icon-bed", title: "4 Beds" },
-      { icon: "icon-shower", title: "4 Bath" },
+      { icon: "icon-shower", title: "4.5 Bathrooms" },
       { icon: "icon-laundry", title: "Laundry" }
     ];
     this.amenities = amenities.map((a, index) => {
@@ -55,7 +58,14 @@ class AmenitiesContainer extends Component {
     this.props.mount("amenities");
   }
   render() {
-    const images = [img1, img2, img3];
+    const images = [
+      { img: img1, label: "" },
+      { img: img2, label: "" },
+      { img: img3, label: "" },
+      { img: img4, label: "" },
+      { img: img5, label: "" },
+      { img: img6, label: "" }
+    ];
     return (
       <section id="amenities">
         <AmenitiesBg>
@@ -70,9 +80,6 @@ class AmenitiesContainer extends Component {
               <RowImgW>
                 <Smallgallery images={images} />
               </RowImgW>
-              <ImageFooter>
-                Lorem upsum <span> | 01</span>
-              </ImageFooter>
             </RowImg>
             <RowBg className="wow fadeInRight">
               <TorreSubTitle>Exclusive details:</TorreSubTitle>
@@ -80,19 +87,24 @@ class AmenitiesContainer extends Component {
               <List>
                 <li>
                   <Paragraph>
-                    - Blue Brazilian granite finishes in kitchen.
+                    <span>-</span> Blue Brazilian granite finishes in kitchen.
                   </Paragraph>
                 </li>
                 <li>
                   <Paragraph>
-                    - Italian marble in bedrooms, kitchen and bathrooms.
+                    <span>-</span> Italian marble in bedrooms, kitchen and
+                    bathrooms.
                   </Paragraph>
                 </li>
                 <li>
-                  <Paragraph>- Imported cabinets from Italy.</Paragraph>
+                  <Paragraph>
+                    <span>-</span> Imported cabinets from Italy.
+                  </Paragraph>
                 </li>
                 <li>
-                  <Paragraph>- 3 large ovens.</Paragraph>
+                  <Paragraph>
+                    <span>-</span> 3 large ovens.
+                  </Paragraph>
                 </li>
               </List>
             </RowBg>
@@ -101,7 +113,7 @@ class AmenitiesContainer extends Component {
         <Rows min="">
           <Row width="20%" className="wow fadeInUp">
             <TorreSubTitleDivided division="true">
-              Amenities <br /> included:
+              Features <br /> and amenities:
             </TorreSubTitleDivided>
             <Paragraph>
               Imagine waking up everyday in paradise, in this extravagant and
