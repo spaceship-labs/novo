@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
 import { hydrate, render } from "react-dom";
-import './theme/index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import "./theme/index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const rootElement = document.getElementById("root");
-const app = <App />;
+const app = (
+  <Router>
+    <App />
+  </Router>
+);
 if (rootElement.hasChildNodes()) {
   hydrate(app, rootElement);
 } else {

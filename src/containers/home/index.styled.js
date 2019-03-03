@@ -28,7 +28,6 @@ const ImageWithBox = styled.div`
   width: 100%;
   min-height: 300px;
   max-height: 800px;
-  height: ${props => props.theme.height};
   background-image: url(${img3});
   background-size: cover;
   z-index: 1;

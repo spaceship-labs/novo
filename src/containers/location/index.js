@@ -22,20 +22,26 @@ class LocationContainer extends Component {
       />
     );
     //const iframe = '';
+    const t1 = this.props.lang === "es" ? "Ubicación" : "Location";
+    const t2 =
+      this.props.lang === "es"
+        ? "Novo Cancún Torre Boreal PH2"
+        : "Novo Cancun Torre Boreal PH2";
+    const t3 =
+      this.props.lang === "es" ? "Cancún Quintana Roo" : "Cancun Quintana Roo";
+    const t4 =
+      this.props.lang === "es"
+        ? "Novo Cancún es un desarrollo inmobiliario en Puerto Cancún, con instalaciones de clase mundial: campo de golf de 18 hoyos, y su propia marina; ubicado a 20 minutos de Aeropuerto Internacional, y a un lado del centro comercial Marina Town Center."
+        : "Novo Cancun is a real estate development located in Puerto Cancun, featuring a world-class 18-hole golf course and its own marina. 20 minute drive from the Cancun International Airport and right by Marina Town Center shopping mall.";
     return (
       <Section id="location">
         <div className="wow fadeInUp">
-          <Title>Location</Title>
+          <Title>{t1}</Title>
           <Division />
           <Subtitle>
-            Novo Cancún Torre Boreal PH2 | <i>Cancún Quintana Roo</i>
+            {t2} | <i>{t3}</i>
           </Subtitle>
-          <Paragraph align="center">
-            Novo Cancun is a real estate development located in Puerto Cancun,
-            featuring a world-class 18-hole golf course and its own marina. 20
-            minute drive from the Cancun International Airport and right by
-            Marina Town Center shopping mall.
-          </Paragraph>
+          <Paragraph align="center">{t4}</Paragraph>
         </div>
         {iframe}
       </Section>

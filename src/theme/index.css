@@ -17,6 +17,7 @@ code {
 html,
 body {
   min-height: 100%;
+  width: 100%;
 }
 
 section {
@@ -25,4 +26,10 @@ section {
 }
 section#video {
   z-index: 10;
+}
+section#photos {
+  z-index: 5;
+}
+section#photos.full-screen {
+  z-index: 999;
 }

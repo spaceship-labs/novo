@@ -16,10 +16,10 @@ const MenuWrapp = styled.div`
 `;
 
 const Menu = styled.nav`
-  width: 60%;
+  width: 70%;
   display: flex;
   @media only screen and (max-width: 900px) {
-    width: 80%;
+    width: 90%;
   }
 `;
 

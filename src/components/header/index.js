@@ -43,10 +43,28 @@ class HeaderComponent extends Component {
       <Header>
         <div />
         <MenuWrapp>
-          <Menu>{menuItems}</Menu>
+          <Menu>
+            {menuItems}
+            <MenuItem
+              onClick={() => this.props.openVideo(true)}
+              className=""
+              percentage={0}
+            >
+              Video
+            </MenuItem>
+          </Menu>
         </MenuWrapp>
         <FullMenuWrap isFullVisible={this.props.isFullVisible}>
-          <FullMenu>{menuItems}</FullMenu>
+          <FullMenu>
+            {menuItems}
+            <MenuItem
+              onClick={() => this.props.openVideo(true)}
+              className=""
+              percentage={0}
+            >
+              Video
+            </MenuItem>
+          </FullMenu>
         </FullMenuWrap>
       </Header>
     );

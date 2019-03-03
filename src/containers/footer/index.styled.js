@@ -52,6 +52,9 @@ const Columns = styled.div`
       font-size: ${props => props.theme.textSize};
     }
   }
+  ${props => props.theme.smallBreakPoint} {
+    flex-direction: column;
+  }
 `;
 
 const Column = styled.div`

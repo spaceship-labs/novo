@@ -47,7 +47,6 @@ const GalleryWrapp = styled.div`
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  max-height: ${props => props.theme.heightNumber - 120}px;
   ${ArrowLeft} {
     left: 10px;
     background-color: ${props => props.theme.Blue};
@@ -72,18 +71,11 @@ const GalleryWrapp = styled.div`
       opacity: 1;
     }
   }
-`;
-
-const GalleryScreen = styled.div`
-  width: 100%;
-  overflow: hidden;
-  overflow-x: scroll;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  box-sizing: border-box;
-  max-height: ${props => props.theme.heightNumber - 120}px;
-  &::-webkit-scrollbar {
-    display: none;
+  ${props => props.theme.mediumBreakPoint} {
+    max-height: 600px;
+  }
+  ${props => props.theme.smallBreakPoint} {
+    max-height: 300px;
   }
 `;
 
@@ -91,25 +83,46 @@ const GalleryReel = styled.div`
   position: relative;
   height: 100%;
   width: ${props => props.width}px;
-  max-height: ${props => props.theme.heightNumber - 120}px;
   display: flex;
+  align-items: center;
+  ${props => props.theme.mediumBreakPoint} {
+    max-height: 600px;
+  }
+  ${props => props.theme.smallBreakPoint} {
+    max-height: 300px;
+  }
 `;
 
 const GalleryItem = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center
   flex: 0 1 ${props => props.width}px;
   height: 100%;
-  max-height: ${props => props.theme.heightNumber - 120}px;
+  max-height: 100%;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   padding: 0;
-  img {
+  text-align: center;
+  span {
+    position: relative;
+    display: inline-block;
     margin: 0 auto;
+    max-width: 100%;
+    p {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 5px 15px;
+      margin: 0;
+      color: ${props => props.theme.Black};
+      font-family: ${props => props.theme.Assistant};
+    }
+  }
+  img {
     display: block;
-
-    height: ${props => props.theme.heightNumber - 120 + "px"};
   }
   p {
     font-size: ${props => props.theme.MenuItemSmall};
@@ -120,11 +133,31 @@ const GalleryItem = styled.div`
       font-size: ${props => props.theme.MenuItemSmall2x};
     }
   }
+  ${props => props.theme.mediumBreakPoint} {
+    span {
+      max-height: 600px;
+    }
+    img {
+      max-height: 600px;
+      width: ${props => (props.vertical ? "auto" : "100%")};
+      height: ${props =>
+        props.vertical ? "100%!important" : "auto !important"};
+    }
+  }
+  ${props => props.theme.smallBreakPoint} {
+    span {
+      max-height: 300px;
+    }
+    img{
+      max-height: 300px;
+    }
+  }
 `;
 
 const GalleryItemImage = styled.div`
   flex: 0 1 auto;
   overflow: hidden;
+  max-height: 100%;
 `;
 
 const Menu = styled.div`
@@ -133,9 +166,10 @@ const Menu = styled.div`
   max-width: 98%;
   width: 250px;
   width: 820px;
+  width: 980px;
   margin: 0 auto 25px;
   ${props => props.theme.largeBreakPoint} {
-    width: 960px;
+    width: 1145px;
   }
 `;
 
@@ -156,12 +190,40 @@ const MenuReel = styled.div`
   display: flex;
   width: 500px;
   width: 100%;
-  @media only screen and (max-width: 920px) {
+  width: -webkit-fit-content;
+  width: fit-content;
+  @media only screen and (max-width: 750px) {
     box-sizing: border-box;
     width: 600%;
     ${MenuItem} {
       flex: 1 0 16.66%;
     }
+  }
+`;
+
+const GalleryScreen = styled.div`
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &.full-screen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    ${GalleryReel},${GalleryItem}{
+      height: 100%;
+    }
+  }
+  ${props => props.theme.smallBreakPoint} {
+    max-height: 300px;
   }
 `;
 

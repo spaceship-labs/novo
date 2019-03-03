@@ -26,11 +26,7 @@ class Smallgallery extends Component {
     const images = this.props.images.map((img, index) => {
       const visible = index === this.state.position;
       return (
-        <GalleryItem key={index} visible={visible} img={img.img}>
-          <p>
-            {img.label} | <span>0{index + 1}</span>
-          </p>
-        </GalleryItem>
+        <GalleryItem key={index} visible={visible} img={img.img} />
       );
     });
     return <GalleryWrapp>{images}</GalleryWrapp>;

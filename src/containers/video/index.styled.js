@@ -3,7 +3,6 @@ import img2 from "../../theme/portada.jpg";
 
 const VideoWrapper = styled.div`
   min-height: 300px;
-  height: ${props => props.theme.height};
   background-color: ${props => props.theme.Blue};
   display: flex;
   flex-direction: column;

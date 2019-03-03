@@ -18,10 +18,8 @@ class TorreComponent extends Component {
       { img: img4, label: "" },
       { img: img5, label: "" }
     ];
-    const scrollTo = sections => {
-      const top = sections.contact.top;
-      window.scroll({ top: top, let: 0, behavior: "smooth" });
-    };
+    const book =
+      this.props.lang === "es" ? "Agenda una visita" : "Book a viewing";
     return (
       <TorreWrapp>
         <Rows>
@@ -30,13 +28,11 @@ class TorreComponent extends Component {
               Torre Boreal <br /> PH2
             </TorreSubTitle>
             <Paragraph align="right">
-              The penthouse encompasses the 20th and 21st floors where you can
-              contemplate breathtaking views of Cancun’s glistening skyline and
-              peaceful Caribbean waters.
+              {this.props.lang === "es"
+                ? "El penthouse está en el piso 20 y 21, donde podrás contemplar asombrosas vistas citadinas Cancún, y las tranquilas y pacíficas aguas del caribe mexicano."
+                : "The penthouse encompasses the 20th and 21st floors where you can contemplate breathtaking views of Cancun’s glistening skyline and peaceful Caribbean waters."}
             </Paragraph>
-            <Button onClick={() => scrollTo(this.props.sections)}>
-              Book a viewing
-            </Button>
+            <Button onClick={this.props.openContact}>{book}</Button>
           </Row>
           <Row width="70%" className="wow fadeInUp">
             <Smallgallery images={images} />

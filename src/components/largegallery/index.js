@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import { SectionWrapper } from "../../containers/photos/index.styled";
 import {
   GalleryWrapp,
   GalleryScreen,
@@ -19,12 +21,10 @@ class Largegallery extends Component {
     super(props);
     this.state = {
       current: 0,
-      moving: false,
       reel: false,
-      menuReel: false,
-      reelW: 0,
-      itemWidth: 0,
-      images: 0
+      images: 0,
+      fullScreen: "",
+      moving: false
     };
   }
   componentDidMount() {
@@ -36,10 +36,10 @@ class Largegallery extends Component {
         ? 0
         : Theme.SidebarWidth;
     const itemWidth = this.props.widthNumber - sidebar;
-    let images = 0;
-    this.props.images.map((section, i) => {
-      images += section.images.length;
-    });
+    //let images = 0;
+    const images = this.props.images.reduce((val, section, i) => {
+      return val + section.images.length;
+    }, 0);
     this.setState({
       reel: reel,
       itemWidth: itemWidth,
@@ -47,6 +47,7 @@ class Largegallery extends Component {
     });
   }
   moveMenu(direction) {
+    if( this.state.moving === true ) return;
     let current = this.state.current + direction;
     if (current < 0) current = this.state.images.length - 1;
     if (current >= this.state.images.length) current = 0;
@@ -63,15 +64,18 @@ class Largegallery extends Component {
     this.scrollTo(start);
   }
   scrollTo = index => {
+    if( this.state.moving === true ) return;
+    this.setState({ moving: true });
     if (index < 0) index = this.state.images - 1;
     if (index >= this.state.images) index = 0;
     const sidebar = this.props.widthNumber < 750 ? 0 : Theme.SidebarWidth;
     const itemWidth = this.props.widthNumber - sidebar - 0;
     const reel = this.state.reel;
     const left = itemWidth * index;
-    console.log("scroll", left, reel);
+    //console.log("scroll", left, reel);
+    this.setState({ current: index });
     reel.scroll({ top: 0, left: left, behavior: "smooth" });
-    if (this.props.widthNumber <= 920) {
+    if (this.props.widthNumber <= 750) {
       const menu = document.getElementById("largeMenuReel");
       const menuIndex = this.props.images.reduce((val, section, menuIndex) => {
         val =
@@ -83,10 +87,33 @@ class Largegallery extends Component {
       }, 0);
       const leftMenu = menu.offsetWidth * menuIndex;
       menu.scroll({ top: 0, left: leftMenu, behavior: "smooth" });
+      this.activeArrows();
+    } else {
+      const menuIndex = this.props.images.reduce((val, section, menuIndex) => {
+        val =
+          index >= section.start &&
+          index < section.start + section.images.length
+            ? menuIndex
+            : val;
+        return val;
+      }, 0);
+      const menu = document.getElementById("largeMenuReel");
+      const items = menu.querySelectorAll(".menu-item");
+      menu.scroll({
+        top: 0,
+        left: menuIndex >= 4 ? items[items.length - 1].offsetLeft : 0,
+        behavior: "smooth"
+      });
+      this.activeArrows();
     }
-    this.setState({ current: index });
+  };
+  activeArrows = () => {
+    setTimeout(() => {
+      this.setState({ moving: false});
+    }, 500);
   };
   render() {
+    const h = { height: this.props.height - 120 + "px" };
     const sidebar = this.props.widthNumber < 750 ? 0 : Theme.SidebarWidth;
     const itemWidth = this.props.widthNumber - sidebar - 0;
     let items = 0;
@@ -95,15 +122,17 @@ class Largegallery extends Component {
       return section.images.map((img, index) => {
         return (
           <GalleryItem
+            style={{ ...h, width: itemWidth + "px" }}
             className={img.vertical}
             key={section.start + index}
-            width={itemWidth}
             vertical={img.vertical}
           >
             <GalleryItemImage>
-              <img src={img.img} alt={img.label} />
+              <span>
+                <img style={h} src={img.img} alt={img.label} />
+                <p>{img.label}</p>
+              </span>
             </GalleryItemImage>
-            <p>{img.label}</p>
           </GalleryItem>
         );
       });
@@ -113,10 +142,10 @@ class Largegallery extends Component {
       return (
         <MenuItem
           className={
-            this.state.current >= section.start &&
+            (this.state.current >= section.start &&
             this.state.current < section.start + section.images.length
               ? "active"
-              : ""
+              : "") + " menu-item"
           }
           key={index}
           onClick={() => this.scrollTo(section.start)}
@@ -126,7 +155,7 @@ class Largegallery extends Component {
       );
     });
     return (
-      <React.Fragment>
+      <SectionWrapper id="photos" className={this.state.fullScreen}>
         <Menu>
           <ArrowLeft onClick={() => this.moveMenu(-1)}>
             <i className="icon-left" />
@@ -138,18 +167,24 @@ class Largegallery extends Component {
             <MenuReel>{menuItems}</MenuReel>
           </MenuScreen>
         </Menu>
-        <GalleryWrapp>
+        <GalleryWrapp style={h}>
           <ArrowLeft onClick={() => this.scrollTo(this.state.current - 1)}>
             <i className="icon-left" />
           </ArrowLeft>
           <ArrowRight onClick={() => this.scrollTo(this.state.current + 1)}>
             <i className="icon-right" />
           </ArrowRight>
-          <GalleryScreen id="largeGalReel">
-            <GalleryReel width={reelW}>{images}</GalleryReel>
+          <GalleryScreen
+            style={h}
+            id="largeGalReel"
+            className={this.state.fullScreen}
+          >
+            <GalleryReel style={{ ...h, width: reelW + "px" }}>
+              {images}
+            </GalleryReel>
           </GalleryScreen>
         </GalleryWrapp>
-      </React.Fragment>
+      </SectionWrapper>
     );
   }
 }

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import {
   SidebarWrapper,
   SidebarContent,
   SidebarSection,
   SidebarMenuWrapp,
   SideMenu,
-  LogoSidebar
+  LogoSidebar,
+  Lang
 } from "./index.styled";
 
 class Sidebar extends Component {
@@ -16,6 +18,10 @@ class Sidebar extends Component {
   toggleMenu() {
     this.setState({ menu: !this.state.menu });
   }
+  openVideo = val => {
+    this.toggleMenu();
+    this.props.openVideo(val);
+  };
   render() {
     const scrollTo = section => {
       this.toggleMenu();
@@ -23,26 +29,29 @@ class Sidebar extends Component {
       window.scroll({ top: top, let: 0, behavior: "smooth" });
     };
     const Sections = {
-      video: "Welcome",
-      home: "Welcome",
-      photos: "Gallery",
-      amenities: "Amenities",
-      location: "Location",
-      about: "About Novo",
-      contact: "Contact us"
+      video: this.props.lang === "es" ? "Bienvenido" : "Welcome",
+      home: this.props.lang === "es" ? "Bienvenido" : "Welcome",
+      photos: this.props.lang === "es" ? "Galerías" : "Gallery",
+      amenities: this.props.lang === "es" ? "Amenidades" : "Amenities",
+      location: this.props.lang === "es" ? "Ubicación" : "Location",
+      about: this.props.lang === "es" ? "Acerca de Novo" : "About Novo",
+      contact: this.props.lang === "es" ? "Contacto" : "Contact us"
     };
     const getText = id => {
       return Sections[id] || "Welcome";
     };
-    const section = Object.keys(this.props.sections).reduce((result, key) => {
-      const item = this.props.sections[key];
-      if (
-        this.props.scroll > item.top &&
-        this.props.scroll < this.props.scroll + item.height
-      )
-        result = getText(key);
-      return result;
-    }, "Welcome");
+    const section = Object.keys(this.props.sections).reduce(
+      (result, key) => {
+        const item = this.props.sections[key];
+        if (
+          this.props.scroll > item.top &&
+          this.props.scroll < this.props.scroll + item.height
+        )
+          result = getText(key);
+        return result;
+      },
+      this.props.lang === "es" ? "Bienvenido" : "Welcome"
+    );
     const menuItems = Object.keys(this.props.sections).map((key, index) => {
       if (key === "video") return false;
       const section = this.props.sections[key];
@@ -62,7 +71,20 @@ class Sidebar extends Component {
         </SideMenu>
         <SidebarContent className={this.state.menu ? "open" : ""}>
           <SidebarMenuWrapp className={this.state.menu ? "open" : ""}>
-            <ul>{menuItems}</ul>
+            <ul>
+              {menuItems}
+              <li>
+                <a onClick={() => this.openVideo(true)}>Video Interior</a>
+              </li>
+              <li>
+                <a onClick={() => this.openVideo(false)}>
+                  {this.props.lang === "es" ? "Video de Drone" : "Drone Video"}
+                </a>
+              </li>
+            </ul>
+            <Lang>
+              <a href="/es">ESP</a> <span>|</span> <a href="/">ENG</a>
+            </Lang>
             <p>
               <a href="mailto:info@puertocancunpenthouse.com">
                 info@puertocancunpenthouse.com

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageFooter, Paragraph } from "../../theme/App.styled";
+import { Paragraph } from "../../theme/App.styled";
 import {
   AmenitiesBg,
   Rows,
@@ -33,10 +33,22 @@ class AmenitiesContainer extends Component {
   constructor(props) {
     super(props);
     const amenities = [
-      { icon: "icon-room", title: "4 Rooms" },
-      { icon: "icon-bed", title: "4 Beds" },
-      { icon: "icon-shower", title: "4.5 Bathrooms" },
-      { icon: "icon-laundry", title: "Laundry" }
+      {
+        icon: "icon-room",
+        title: this.props.lang === "es" ? "4 Habitaciones" : "4 Rooms"
+      },
+      {
+        icon: "icon-bed",
+        title: this.props.lang === "es" ? "4 Camas" : "4 Beds"
+      },
+      {
+        icon: "icon-shower",
+        title: this.props.lang === "es" ? "4.5 Baños" : "4.5 Bathrooms"
+      },
+      {
+        icon: "icon-laundry",
+        title: this.props.lang === "es" ? "Cuarto de lavado" : "Laundry"
+      }
     ];
     this.amenities = amenities.map((a, index) => {
       const delay = `${index * 0.3}s`;
@@ -57,6 +69,45 @@ class AmenitiesContainer extends Component {
   componentDidMount() {
     this.props.mount("amenities");
   }
+  getText = key => {
+    const texts = {
+      text1: this.props.lang === "es" ? "Amenidades" : "Amenities",
+      text2:
+        this.props.lang === "es"
+          ? "Un departamento lujoso,"
+          : "A luxurious apartment,",
+      text3:
+        this.props.lang === "es"
+          ? "elegante y sofisticado."
+          : "elegant and sophisticated.",
+      text4:
+        this.props.lang === "es" ? "Detalles exclusivos" : "Exclusive details",
+      text5:
+        this.props.lang === "es"
+          ? "Acabados en cocina de granito azul brasileño"
+          : "Blue Brazilian granite finishes in kitchen.",
+      text6:
+        this.props.lang === "es"
+          ? "Mármol italiano en habitaciones, cocina y baños"
+          : "Italian marble in bedrooms, kitchen and bathrooms.",
+      text7:
+        this.props.lang === "es"
+          ? "Gabinetes importados de Italia"
+          : "Imported cabinets from Italy.",
+      text8: this.props.lang === "es" ? "3 hornos grandes" : "3 large ovens.",
+      text9: this.props.lang === "es" ? "Amenidades" : "Features",
+      text10: this.props.lang === "es" ? "" : "and amenities:",
+      text11:
+        this.props.lang === "es"
+          ? "Imagina despertar todos los días en este paraíso, en un penthouse extravagante y elegante. Disfrutarás aquí, exclusivas amenidades"
+          : "Imagine waking up everyday in paradise, in this extravagant and opulent penthouse. Enjoy its exclusive and wonderful features!",
+      text12: this.props.lang === "es" ? "Terraza" : "Terrace",
+      text13: this.props.lang === "es" ? "Walk in closet" : "Walk in closet",
+      text14: this.props.lang === "es" ? "Jacuzzi" : "Jacuzzi",
+      text15: this.props.lang === "es" ? "Roof Garden" : "Roof Garden"
+    };
+    return texts[key];
+  };
   render() {
     const images = [
       { img: img1, label: "" },
@@ -71,9 +122,9 @@ class AmenitiesContainer extends Component {
         <AmenitiesBg>
           <TitleWrapper className="wow fadeInUp">
             <VerticalLine />
-            <AmenitiesTitle>Amenities</AmenitiesTitle>
-            <AmenitiesSubTitle>A luxurious apartment,</AmenitiesSubTitle>
-            <AmenitiesFooter>elegant and sophisticated.</AmenitiesFooter>
+            <AmenitiesTitle>{this.getText("text1")}</AmenitiesTitle>
+            <AmenitiesSubTitle>{this.getText("text2")}</AmenitiesSubTitle>
+            <AmenitiesFooter>{this.getText("text3")}</AmenitiesFooter>
           </TitleWrapper>
           <Rows align="start">
             <RowImg className="wow fadeInLeft">
@@ -82,28 +133,27 @@ class AmenitiesContainer extends Component {
               </RowImgW>
             </RowImg>
             <RowBg className="wow fadeInRight">
-              <TorreSubTitle>Exclusive details:</TorreSubTitle>
+              <TorreSubTitle>{this.getText("text4")}:</TorreSubTitle>
               <HorizontalLine align="left" />
               <List>
                 <li>
                   <Paragraph>
-                    <span>-</span> Blue Brazilian granite finishes in kitchen.
+                    <span>-</span> {this.getText("text5")}
                   </Paragraph>
                 </li>
                 <li>
                   <Paragraph>
-                    <span>-</span> Italian marble in bedrooms, kitchen and
-                    bathrooms.
+                    <span>-</span> {this.getText("text6")}
                   </Paragraph>
                 </li>
                 <li>
                   <Paragraph>
-                    <span>-</span> Imported cabinets from Italy.
+                    <span>-</span> {this.getText("text7")}
                   </Paragraph>
                 </li>
                 <li>
                   <Paragraph>
-                    <span>-</span> 3 large ovens.
+                    <span>-</span> {this.getText("text8")}
                   </Paragraph>
                 </li>
               </List>
@@ -113,20 +163,20 @@ class AmenitiesContainer extends Component {
         <Rows min="">
           <Row width="20%" className="wow fadeInUp">
             <TorreSubTitleDivided division="true">
-              Features <br /> and amenities:
+              {this.getText("text9")} <br /> {this.getText("text10")}
             </TorreSubTitleDivided>
-            <Paragraph>
-              Imagine waking up everyday in paradise, in this extravagant and
-              opulent penthouse. Enjoy its exclusive and wonderful features!
-            </Paragraph>
+            <Paragraph>{this.getText("text11")}</Paragraph>
           </Row>
           <RowBlue width="80%" align="center" bg="blue">
             <AmenitieList align="center">{this.amenities}</AmenitieList>
             <Paragraph align="center">
-              Terrace<i> | </i>
-              Walk in closet<i> | </i>
-              Jacuzzi<i> | </i>
-              Roof Garden
+              {this.getText("text12")}
+              <i> | </i>
+              {this.getText("text13")}
+              <i> | </i>
+              {this.getText("text14")}
+              <i> | </i>
+              {this.getText("text15")}
             </Paragraph>
           </RowBlue>
         </Rows>

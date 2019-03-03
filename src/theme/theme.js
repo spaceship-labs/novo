@@ -9,14 +9,12 @@ export const Theme = {
   Gray: "#aaaaaa",
   Assistant: "'Assistant', serif",
   Playfair: "'Playfair Display', serif",
-  height: "200px",
-  heightNumber: 200,
-  widthNumber: 400,
+  widthNumber: document.body.clientWidth || window.innerWidth,
   pLeft: "25px",
   pRight: "35px",
   //media query
   largeBreakPoint:
-    "@media only screen and (min-width: 1400px), only screen and (min-resolution: 2dppx)",
+    "@media only screen and (min-width: 1400px), only screen and (min-width: 500px) and (min-resolution: 2dppx)",
   mediumBreakPoint: "@media only screen and (max-width: 750px)",
   smallBreakPoint: "@media only screen and (max-width: 450px)",
   //sizes

@@ -68,6 +68,7 @@ const TitleFooter = styled.p`
 const Button = styled.a`
   border: 1px solid ${props => props.theme.Gold};
   color: ${props => props.theme.Gold};
+  transition: all 0.3s;
   text-align: center;
   width: 100%;
   max-width: 400px;
@@ -82,6 +83,11 @@ const Button = styled.a`
   font-family: ${props => props.theme.Assistant};
   ${props => props.theme.largeBreakPoint} {
     font-size: ${props => props.theme.textSmall2x};
+  }
+  &:hover,
+  &.active {
+    background-color: ${props => props.theme.Gold};
+    color: white;
   }
 `;
 
