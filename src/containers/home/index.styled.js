@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import img3 from "../../theme/livingroom.jpg";
+import styled from 'styled-components';
+import img3 from '../../theme/livingroom.jpg';
 
-import { SubTitle } from "../../theme/App.styled";
+import { SubTitle } from '../../theme/App.styled';
 
 const Welcome = styled.div`
   padding: 50px 0;
@@ -29,6 +29,8 @@ const ImageWithBox = styled.div`
   min-height: 300px;
   max-height: 800px;
   background-image: url(${img3});
+  background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
   ${props => props.theme.mediumBreakPoint} {
@@ -56,7 +58,7 @@ const Box = styled.div`
     margin-bottom: 30px;
     position: relative;
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -14px;
       width: 110px;
@@ -90,24 +92,24 @@ const Box = styled.div`
 const Rows = styled.div`
   display: flex;
   position: relative;
-  fle-direction: ${props => (props.direction ? props.direction : "row")};
+  fle-direction: ${props => (props.direction ? props.direction : 'row')};
   ${props => props.theme.mediumBreakPoint} {
     flex-direction: column-reverse;
   }
 `;
 
 const Row = styled.div`
-  flex: ${props => (props.width ? "0 1 " + props.width : "1 0 auto")};
-  ${props => (props.width ? "min-width:" + props.width + ";" : "")}
+  flex: ${props => (props.width ? '0 1 ' + props.width : '1 0 auto')};
+  ${props => (props.width ? 'min-width:' + props.width + ';' : '')}
   min-height: 300px;
   img{
       max-width: 100%;
       width: 100%;
   }
   ${props =>
-    props.align && props.align === "right" ? "padding-right:22px;" : ""}
+    props.align && props.align === 'right' ? 'padding-right:22px;' : ''}
   text-align: ${props =>
-    props.align && props.align === "right" ? "right" : "left"};
+    props.align && props.align === 'right' ? 'right' : 'left'};
   ${props => props.theme.mediumBreakPoint} {
       text-align: center;
       min-height: 200px;
@@ -127,7 +129,7 @@ const TorreSubTitle = styled(SubTitle)`
   position: relative;
   padding-bottom: 40px;
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     z-index: 1;
     bottom: 15px;
@@ -159,5 +161,5 @@ export {
   Rows,
   Row,
   TorreWrapp,
-  TorreSubTitle
+  TorreSubTitle,
 };

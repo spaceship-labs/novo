@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Footer = styled.footer`
   background-color: ${props => props.theme.Blue};
@@ -15,7 +15,7 @@ const Box = styled.div`
   background-color: ${props => props.theme.Box};
   position: relative;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 1px;
     height: 110px;
