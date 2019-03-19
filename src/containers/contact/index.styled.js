@@ -21,6 +21,8 @@ const ContactSubTitle = styled(SubTitle)`
 `;
 const ContactTitleFooter = styled(TitleFooter)`
   color: white;
+  font-size: 17px;
+  line-height: 50%;
 `;
 
 const Message = styled.p`
@@ -227,6 +229,11 @@ const Videos = styled.div`
   }
 `;
 
+const LinkStyle = styled.a`
+  text-decoration: none;
+  color: white;
+`;
+
 export {
   Section,
   ContactTitle,
@@ -242,4 +249,5 @@ export {
   ModalContainer,
   Close,
   Videos,
+  LinkStyle,
 };

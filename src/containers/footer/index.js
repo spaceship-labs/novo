@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Columns, Column, Logo, Footer, Box } from './index.styled';
+import { Columns, Column, Logo, Footer, Box, Contact } from './index.styled';
 
 class footerContainer extends Component {
   render() {
@@ -17,18 +17,6 @@ class footerContainer extends Component {
                 <a href="tel:+52 1 55 6203 9056">+52 1 55 6203 9056</a>
               </p>
               <br />
-              <p>
-                For all informations please contact Tatiana Martinez Castillo
-                at:
-              </p>
-              <p>
-                <a href="mailto:tatsmtz7@gmail.com.com">
-                  tatsmtz7@gmail.com.com
-                </a>
-              </p>
-              <p>
-                <a href="tel:+52 1 55 62 03 9056">+52 1 55 62 03 9056</a>
-              </p>
             </Column>
             <Column>
               <Logo>

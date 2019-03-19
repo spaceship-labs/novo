@@ -42,14 +42,15 @@ class En extends Component {
   updateScrollState = event => {
     if (!event) return;
     const sections = {
-      video: this.getSection('video'),
       home: this.getSection('home'),
       photos: this.getSection('photos'),
+      video: this.getSection('video'),
       amenities: this.getSection('amenities'),
       location: this.getSection('location'),
       about: this.getSection('about'),
       contact: this.getSection('contact'),
     };
+    console.log(sections);
     this.setState({
       scroll: window.scrollY,
       sections: sections,
@@ -72,9 +73,9 @@ class En extends Component {
 
   updateWindowDimensions = () => {
     const sections = {
-      video: this.getSection('video'),
       home: this.getSection('home'),
       photos: this.getSection('photos'),
+      video: this.getSection('video'),
       amenities: this.getSection('amenities'),
       location: this.getSection('location'),
       about: this.getSection('about'),

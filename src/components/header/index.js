@@ -39,31 +39,65 @@ class HeaderComponent extends Component {
         </MenuItem>
       );
     });
+    const menuItemsFull = Object.keys(allSections).map((key, index) => {
+      if (key === 'video')
+        return (
+          <MenuItem
+            onClick={() => this.props.openVideo(true)}
+            className=""
+            percentage={this.props.scroll < 3800 ? 0 : 100}
+          >
+            Video
+          </MenuItem>
+        );
+      const section = allSections[key];
+      const item = section.section;
+      let percentage = 0;
+      if (this.props.scroll > section.top + section.height) {
+        percentage = 100;
+      } else if (this.props.scroll < section.top) {
+        percentage = 0;
+      } else {
+        const S = this.props.scroll - section.top;
+        percentage = (S * 100) / section.height;
+      }
+      return (
+        <MenuItem
+          key={index}
+          onClick={e => scrollTo(section)}
+          className={percentage}
+          percentage={percentage}
+        >
+          {item.title}
+        </MenuItem>
+      );
+    });
     return (
       <Header>
         <div />
         <MenuWrapp>
           <Menu>
-            {menuItems}
-            <MenuItem
+            {menuItemsFull}
+
+            {/* <MenuItem
               onClick={() => this.props.openVideo(true)}
               className=""
               percentage={0}
             >
               Video
-            </MenuItem>
+            </MenuItem> */}
           </Menu>
         </MenuWrapp>
         <FullMenuWrap isFullVisible={this.props.isFullVisible}>
           <FullMenu>
-            {menuItems}
-            <MenuItem
+            {menuItemsFull}
+            {/* <MenuItem
               onClick={() => this.props.openVideo(true)}
               className=""
               percentage={0}
             >
               Video
-            </MenuItem>
+            </MenuItem> */}
           </FullMenu>
         </FullMenuWrap>
       </Header>

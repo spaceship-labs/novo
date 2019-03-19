@@ -83,5 +83,11 @@ const Logo = styled.h2`
     }
   }
 `;
+const Contact = styled.div`
+  text-align: left;
+  box-sizing: border-box;
+  width: 90%;
+  position: relative;
+`;
 
-export { Footer, Box, Columns, Column, Logo };
+export { Footer, Box, Columns, Column, Logo, Contact };
