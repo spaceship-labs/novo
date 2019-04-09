@@ -68,4 +68,22 @@ const Division = styled.hr`
   border-bottom: 0;
 `;
 
-export { Rows, RowBg, RowImg, GalleryWrapp, AboutTitle, Division };
+const MessageText = styled.p`
+  display: block;
+  font-size: 21px;
+  font-weight: lighter;
+  font-style: italic;
+  line-height: normal;
+  margin: 15px 0;
+  span {
+    display: block;
+    font-weight: lighter;
+    font-size: 16px;
+  }
+  a {
+    color: ${props => props.theme.Black};
+    text-decoration: none;
+  }
+`;
+
+export { Rows, RowBg, RowImg, GalleryWrapp, AboutTitle, Division, MessageText };

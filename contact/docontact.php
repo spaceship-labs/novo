@@ -1,5 +1,5 @@
 <?php
-    $to = "erick@spaceshiplabs.com, admin@spaceshiplabs.com";
+    $to = "info@puertocancunpenthouse.com, admin@spaceshiplabs.com";
     $subject = "Boreal PH2 | Contact";
     $name = isset($_POST['boreal_name']) ? strip_tags( $_POST['boreal_name'] ): false;
     $email = isset($_POST['boreal_email']) ? strip_tags( $_POST['boreal_email'] ): false;

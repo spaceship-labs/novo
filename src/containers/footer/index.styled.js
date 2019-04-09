@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Footer = styled.footer`
   background-color: ${props => props.theme.Blue};
@@ -15,7 +15,7 @@ const Box = styled.div`
   background-color: ${props => props.theme.Box};
   position: relative;
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     width: 1px;
     height: 110px;
@@ -30,7 +30,7 @@ const Columns = styled.div`
   display: flex;
   align-items: center;
   margin: 0 auto;
-  max-width: 460px;
+  max-width: 660px;
   color: ${props => props.theme.Black};
   ${props => props.theme.largeBreakPoint} {
     max-width: 600px;
@@ -90,4 +90,12 @@ const Contact = styled.div`
   position: relative;
 `;
 
-export { Footer, Box, Columns, Column, Logo, Contact };
+const MessageText = styled.span`
+  display: block;
+  font-size: 21px;
+  font-weight: lighter;
+  font-style: italic;
+  line-height: normal;
+`;
+
+export { Footer, Box, Columns, Column, Logo, Contact, MessageText };

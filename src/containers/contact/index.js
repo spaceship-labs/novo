@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button as ButtonPrimary } from '../../theme/App.styled';
+import React, { Component } from "react";
+import { Button as ButtonPrimary } from "../../theme/App.styled";
 import {
   Section,
   ContactTitle,
@@ -16,27 +16,31 @@ import {
   Close,
   Videos,
   LinkStyle,
-} from './index.styled';
+  MessageText,
+  EmailText
+} from "./index.styled";
 
 const videoExt =
-  'http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/drone_extended.6779ed4b.mp4';
+  "http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/drone_extended.6779ed4b.mp4";
 const videoWebmExt =
-  'http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/drone_extended.webmhd.e2ed9a52.webm';
+  "http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/drone_extended.webmhd.e2ed9a52.webm";
 const video =
-  'http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/boreal_full_cu.18aeb083.mp4';
+  "http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/boreal_full_cu.18aeb083.mp4";
 const videoWebm =
-  'http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/boreal_full.webmhd.c1c6b486.webm';
+  "http://www.novo.com.php72-34.phx1-1.websitetestlink.com/static/media/boreal_full.webmhd.c1c6b486.webm";
 
 class ContactContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { mailSent: null, video: '', videoFlag: true };
+    this.state = { mailSent: null, video: "", videoFlag: true };
   }
   componentDidMount() {
-    this.props.mount('contact');
-    document.addEventListener('DOMContentLoaded', this.handleLoad);
-    document.getElementById('videoInt').addEventListener('loadstart', () => {
-      document.getElementById('videoInt').play();
+    this.props.mount("contact");
+    document.getElementById("videoInt").muted = true;
+    document.addEventListener("DOMContentLoaded", this.handleLoad);
+    document.getElementById("videoInt").addEventListener("loadstart", () => {
+      document.getElementById("videoInt").muted = true;
+      document.getElementById("videoInt").play();
     });
   }
   componentDidUpdate(prevProps) {
@@ -46,7 +50,7 @@ class ContactContainer extends Component {
   }
   handleLoad = () => {
     setTimeout(() => {
-      if (navigator.userAgent !== 'ReactSnap') {
+      if (navigator.userAgent !== "ReactSnap") {
         this.changeVideo(this.props.videoSelected);
       }
       this.props.openVideo(this.props.videoSelected);
@@ -56,10 +60,10 @@ class ContactContainer extends Component {
     event.preventDefault();
     const form = event.target;
     const data = new FormData(form);
-    const url = '/contact/docontact.php';
+    const url = "/contact/docontact.php";
     fetch(url, {
-      method: 'POST',
-      body: data,
+      method: "POST",
+      body: data
     })
       .then(response => response.json())
       .then(data => {
@@ -72,43 +76,45 @@ class ContactContainer extends Component {
   };
   getForm = () => {
     const t1 =
-      this.props.lang === 'es' ? 'Agenda una visita' : 'Book a viewing';
+      this.props.lang === "es" ? "Agenda una visita" : "Book a viewing";
     const t2 =
-      this.props.lang === 'es' ? 'Déjanos un mensaje' : 'Drop us a message';
+      this.props.lang === "es" ? "Déjanos un mensaje" : "Drop us a message";
     const t3 =
-      this.props.lang === 'es'
-        ? 'Para mas información contacte con Tatiana Martinez Castillo '
-        : 'For all information please contact Tatiana Martinez Castillo at ';
-    const t4 = this.props.lang === 'es' ? 'Nombre Completo' : 'Full name';
-    const t5 = this.props.lang === 'es' ? 'Correo' : 'Email';
-    const t6 = this.props.lang === 'es' ? 'Número de Teléfono' : 'Phone number';
-    const t7 = this.props.lang === 'es' ? 'Mensaje' : 'Message';
-    const t8 = this.props.lang === 'es' ? 'Enviar' : 'Submit';
+      this.props.lang === "es"
+        ? "Para más información contacte con Tatiana Martinez"
+        : "For any information please contact Tatiana Martinez";
+    const t4 = this.props.lang === "es" ? "Nombre Completo" : "Full name";
+    const t5 = this.props.lang === "es" ? "Correo" : "Email";
+    const t6 = this.props.lang === "es" ? "Número de Teléfono" : "Phone number";
+    const t7 = this.props.lang === "es" ? "Mensaje" : "Message";
+    const t8 = this.props.lang === "es" ? "Enviar" : "Submit";
     const t9 =
-      this.props.lang === 'es'
-        ? 'Tu correo ha sido enviado, gracias.'
-        : 'Your mail has been sent, thank you.';
+      this.props.lang === "es"
+        ? "Tu correo ha sido enviado, gracias."
+        : "Your mail has been sent, thank you.";
     const t10 =
-      this.props.lang === 'es'
-        ? 'Ocurrió un error, intente de nuevo.'
-        : 'An error occurred, please try again.';
+      this.props.lang === "es"
+        ? "Ocurrió un error, intente de nuevo."
+        : "An error occurred, please try again.";
     const t11 =
-      this.props.lang === 'es'
-        ? 'info@puertocancunpenthouse.com'
-        : 'info@puertocancunpenthouse.com';
+      this.props.lang === "es"
+        ? "info@puertocancunpenthouse.com"
+        : "info@puertocancunpenthouse.com";
     const t12 =
-      this.props.lang === 'es' ? '+52 1 55 62 03 9056' : '+52 1 55 62 03 9056';
+      this.props.lang === "es" ? "+52 1 55 62 03 9056" : "+52 1 55 62 03 9056";
     return (
       <React.Fragment>
         <ContactTitle>{t1}</ContactTitle>
         <ContactSubTitle>{t2}</ContactSubTitle>
         <ContactTitleFooter>
-          <p>{t3}</p>
+          <MessageText>{t3}</MessageText>
+          <EmailText>
+            <LinkStyle href="mailto:info@puertocancunpenthouse.com">
+              {t11}
+            </LinkStyle>
+          </EmailText>
           <p>
-            <LinkStyle href="info@puertocancunpenthouse.com">{t11}</LinkStyle>
-          </p>
-          <p>
-            <LinkStyle href="tel:+52 1 55 62 03 9056">{t12}</LinkStyle>
+            <LinkStyle href="tel:+52 1 55 62 03 9056">{t12} <i className='icon-whatsapp'></i></LinkStyle>
           </p>
         </ContactTitleFooter>
         <Form onSubmit={this.sendMail}>
@@ -133,8 +139,8 @@ class ContactContainer extends Component {
             </p>
             <Button type="submit">{t8}</Button>
             <Message type={this.state.mailSent}>
-              {this.state.mailSent === true ? t9 : ''}
-              {this.state.mailSent === false ? t10 : ''}
+              {this.state.mailSent === true ? t9 : ""}
+              {this.state.mailSent === false ? t10 : ""}
             </Message>
           </Column>
         </Form>
@@ -154,13 +160,13 @@ class ContactContainer extends Component {
         <source src={videoExt} type="video/mp4" />
       </React.Fragment>
     );
-    if (navigator.userAgent !== 'ReactSnap') {
+    if (navigator.userAgent !== "ReactSnap") {
       this.setState({
         video: val === true ? videoInterior : videoExterior,
-        videoFlag: val,
+        videoFlag: val
       });
       setTimeout(() => {
-        document.getElementById('videoInt').load();
+        document.getElementById("videoInt").load();
       }, 500);
     }
   };
@@ -173,7 +179,7 @@ class ContactContainer extends Component {
         </Section>
         <Modal
           id="portContact"
-          className={this.props.contactModal === true ? 'open' : ''}
+          className={this.props.contactModal === true ? "open" : ""}
         >
           <Background onClick={this.props.close} />
           <ModalWrapp>
@@ -185,7 +191,7 @@ class ContactContainer extends Component {
         </Modal>
         <Modal
           id="portVideo"
-          className={this.props.videoModal === true ? 'open' : ''}
+          className={this.props.videoModal === true ? "open" : ""}
         >
           <Background fullwidth={true} onClick={this.props.closeVideo} />
           <ModalWrapp fullwidth={true}>
@@ -193,7 +199,7 @@ class ContactContainer extends Component {
               <Close onClick={this.props.closeVideo}>x</Close>
               <Videos>
                 <ButtonPrimary
-                  className={this.state.videoFlag === true ? 'active' : ''}
+                  className={this.state.videoFlag === true ? "active" : ""}
                   id="interiorButton"
                   onClick={() => {
                     this.changeVideo(true);
@@ -202,7 +208,7 @@ class ContactContainer extends Component {
                   Interior
                 </ButtonPrimary>
                 <ButtonPrimary
-                  className={this.state.videoFlag === false ? 'active' : ''}
+                  className={this.state.videoFlag === false ? "active" : ""}
                   onClick={() => {
                     this.changeVideo(false);
                   }}

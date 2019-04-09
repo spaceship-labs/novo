@@ -32,6 +32,7 @@ class VideoContainer extends Component {
             scroll={this.props.scroll}
             sections={this.props.sections}
             isFullVisible={this.props.isMenuVisible}
+            isLangVisible={this.props.isLangVisible}
           />
         </VideoWrapper>
       </section>

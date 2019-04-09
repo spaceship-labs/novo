@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   Title,
   SubTitle,
   TitleFooter,
-  Button as ButtonPrimary,
-} from '../../theme/App.styled';
+  Button as ButtonPrimary
+} from "../../theme/App.styled";
 
 const Section = styled.section`
   background-color: ${props => props.theme.Blue};
@@ -111,8 +111,8 @@ const Background = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${props =>
-    props.fullwidth === true ? '#000' : props.theme.Blue};
-  opacity: ${props => (props.fullwidth === true ? '0.5' : '0.7')};
+    props.fullwidth === true ? "#000" : props.theme.Blue};
+  opacity: ${props => (props.fullwidth === true ? "0.5" : "0.7")};
 `;
 
 const ModalContainer = styled.div`
@@ -120,16 +120,16 @@ const ModalContainer = styled.div`
   transition: all 0.5s;
   top: 50px;
   background-color: ${props =>
-    props.fullwidth === true ? '#000' : props.theme.Blue};
+    props.fullwidth === true ? "#000" : props.theme.Blue};
   text-align: center;
   border: 3px solid ${props => props.theme.Gold};
-  ${props => (props.fullwidth === true ? 'border: 0 none;' : '')}
-  padding: ${props => (props.fullwidth === true ? '25px' : '50px')} ${props =>
-  props.fullwidth === true ? '0px' : '30px'};
+  ${props => (props.fullwidth === true ? "border: 0 none;" : "")}
+  padding: ${props => (props.fullwidth === true ? "25px" : "50px")} ${props =>
+  props.fullwidth === true ? "0px" : "30px"};
   max-height: 99%;
   box-sizing: border-box;
   ${props => props.theme.smallBreakPoint} {
-    padding: 20px ${props => (props.fullwidth === true ? '0px' : '20px')};
+    padding: 20px ${props => (props.fullwidth === true ? "0px" : "20px")};
   }
 
 `;
@@ -138,8 +138,8 @@ const ModalWrapp = styled.div`
   flex: 0 1 auto;
   position: relative;
   z-index: 1;
-  width: ${props => (props.fullwidth === true ? '90%' : '600px')};
-  max-width: ${props => (props.fullwidth === true ? '1200px' : '95%')};
+  width: ${props => (props.fullwidth === true ? "90%" : "650px")};
+  max-width: ${props => (props.fullwidth === true ? "1200px" : "95%")};
   max-height: 99%;
   overflow: auto;
   &::-webkit-scrollbar {
@@ -152,19 +152,19 @@ const ModalWrapp = styled.div`
     display: block;
   }
   ${props => props.theme.largeBreakPoint} {
-    max-width: ${props => (props.fullwidth === true ? '1250px' : '95%')};
+    max-width: ${props => (props.fullwidth === true ? "1250px" : "95%")};
   }
   ${props => props.theme.mediumBreakPoint} {
     width: 100%;
-    max-width: ${props => (props.fullwidth === true ? '99%' : '95%')};
+    max-width: ${props => (props.fullwidth === true ? "99%" : "95%")};
     ${ModalContainer} {
-      padding: 25px ${props => (props.fullwidth === true ? '0px' : '25px')};
+      padding: 25px ${props => (props.fullwidth === true ? "0px" : "25px")};
     }
   }
   ${props => props.theme.smallBreakPoint} {
     ${ModalContainer} {
       padding: ${props =>
-        props.fullwidth === true ? '25px 0 20px 0' : '25px 0'};
+        props.fullwidth === true ? "25px 0 20px 0" : "25px 0"};
     }
   }
 `;
@@ -234,6 +234,21 @@ const LinkStyle = styled.a`
   color: white;
 `;
 
+const MessageText = styled.p`
+  display: block;
+  font-size: 21px;
+  font-weight: lighter;
+  font-style: italic;
+  line-height: normal;
+  margin: 15px 0;
+`;
+
+const EmailText = styled.p`
+  display: block;
+  font-weight: lighter;
+  font-size: 16px;
+`;
+
 export {
   Section,
   ContactTitle,
@@ -250,4 +265,6 @@ export {
   Close,
   Videos,
   LinkStyle,
+  MessageText,
+  EmailText
 };

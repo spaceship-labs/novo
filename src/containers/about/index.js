@@ -6,7 +6,8 @@ import {
   RowImg,
   GalleryWrapp,
   AboutTitle,
-  Division
+  Division,
+  MessageText
 } from "./index.styled";
 
 import Smallgallery from "../../components/smallgallery/index";
@@ -30,6 +31,10 @@ class AboutContainer extends Component {
         : "An exclusive residential and commercial complex that overlooks the stunning Cancun hotel zone and the city’s downtown urban lights. Its neighboring SLS Hotel & Residences as well as the future Grand Hyatt both 5 stars hotels, add capital value to this already excellent real estate investment. The residential grounds at Novo Cancun provide everything you need for family enjoyment and wellbeing: a fully equipped fitness center, with state of the art cardio and weight lifting equipment, delightful gardens, swimming pools and a revitalizing spa.";
     const t3 =
       this.props.lang === "es" ? "Agenda una visita" : "Book a viewing";
+    const c1 =
+      this.props.lang === "es"
+        ? "Para más información contacte con Tatiana Martinez"
+        : "For any information please contact Tatiana Martinez";
     return (
       <section id="about">
         <Rows>
@@ -40,6 +45,19 @@ class AboutContainer extends Component {
             <Division />
             <Paragraph>{t2}</Paragraph>
             <Button onClick={this.props.openContact}>{t3}</Button>
+            <Paragraph align="center">
+              <MessageText>
+                {c1}
+                <span>
+                  <a href="mailto:info@puertocancunpenthouse.com">
+                    info@puertocancunpenthouse.com
+                  </a>
+                </span>
+                <span>
+                  <a href="tel:+52 1 55 62 03 9056">+52 1 55 62 03 9056 <i className='icon-whatsapp'></i></a>
+                </span>
+              </MessageText>
+            </Paragraph>
           </RowBg>
           <RowImg className="wow fadeInRight">
             <GalleryWrapp>

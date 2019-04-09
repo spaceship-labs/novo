@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import {
   SidebarWrapper,
   SidebarContent,
@@ -91,7 +90,7 @@ class Sidebar extends Component {
               </a>
             </p>
             <p>
-              <a href="tel:+52 1 55 6203 9056">+52 1 55 6203 9056</a>
+              <a href="tel:+52 1 55 6203 9056">+52 1 55 6203 9056 <i className='icon-whatsapp'></i></a>
             </p>
             <LogoSidebar>
               <span>Novo Cancún</span>

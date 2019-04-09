@@ -99,4 +99,33 @@ const FullMenu = styled.nav`
   }
 `;
 
-export { Header, MenuWrapp, Menu, MenuItem, FullMenuWrap, FullMenu };
+const Lang = styled.div`
+  font-size: ${props => props.theme.textSmall};
+  text-transform: uppercase;
+  font-family: ${props => props.theme.Assistant};
+  letter-spacing: 7.3px;
+  font-weight: bold;
+  color: white;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 0 5px;
+  }
+  span {
+    margin: 5px 0;
+    display: block;
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    font-size: ${props => props.theme.textSmall2x};
+    top: 85px;
+  }
+  transition: all 0.2s;
+  opacity: ${props => (props.isLangVisible === true ? 1 : 0)};
+  visibility: ${props => (props.isLangVisible === true ? "visible" : "hidden")};
+`;
+
+export { Header, MenuWrapp, Menu, MenuItem, FullMenuWrap, FullMenu, Lang };
